@@ -69,8 +69,8 @@ namespace as::cryptox::poloniex {
 	{
 
 		try {
-			std::string s( data, size );
-			// std::cout << s << std::endl;
+			//std::string s( data, size );
+			//std::cout << s << std::endl;
 
 			auto message = WsMessage::deserialize( data, size );
 
@@ -96,10 +96,10 @@ namespace as::cryptox::poloniex {
 					auto m = static_cast<WsMessageAccountNotifications *>(
 						message.get() );
 
-					//as::cryptox::t_order_update u;
-					//u.orderId = std::move( m->OrderId() );
+					// as::cryptox::t_order_update u;
+					// u.orderId = std::move( m->OrderId() );
 
-					//AS_CALL( m_orderUpdateHandler, *this, u );
+					// AS_CALL( m_orderUpdateHandler, *this, u );
 				}
 
 				break;
@@ -116,7 +116,7 @@ namespace as::cryptox::poloniex {
 		as::cryptox::Client::initSymbolMap();
 
 		auto apiRes = apiReqReturnTicker();
-		m_pairList.resize( apiRes.MaxId() + 1 );
+		m_pairList.resize( apiRes.MaxId() + 2 );
 
 		m_pairList[0] = as::cryptox::Pair( as::cryptox::Coin::_undef,
 			as::cryptox::Coin::_undef,

@@ -141,6 +141,11 @@ namespace as::cryptox::poloniex {
 	};
 
 	class WsMessageAccountNotifications : public WsMessage {
+	public:
+		struct Notification {
+		};
+
+
 	protected:
 	protected:
 		void deserialize( boost::json::array & o ) override;
