@@ -101,7 +101,7 @@ namespace as::cryptox::poloniex {
 				}
 
 				Pair pair;
-				pair.name = e.key();
+				pair.name.assign( e.key().to_string() );
 				pair.id = id;
 
 				result.m_pairs.push_back( pair );

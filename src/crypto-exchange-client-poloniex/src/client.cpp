@@ -69,8 +69,8 @@ namespace as::cryptox::poloniex {
 	{
 
 		try {
-			//std::string s( data, size );
-			//std::cout << s << std::endl;
+			// std::string s( data, size );
+			// std::cout << s << std::endl;
 
 			auto message = WsMessage::deserialize( data, size );
 
@@ -124,8 +124,8 @@ namespace as::cryptox::poloniex {
 
 		for ( const auto & p : apiRes.Pairs() ) {
 			auto pos = p.name.find( AS_T( '_' ) );
-			as::cryptox::Coin quote = Coin( p.name.substr( 0, pos ).c_str() );
-			as::cryptox::Coin base = Coin( p.name.substr( pos + 1 ).c_str() );
+			as::cryptox::Coin quote = toCoin( p.name.substr( 0, pos ).c_str() );
+			as::cryptox::Coin base = toCoin( p.name.substr( pos + 1 ).c_str() );
 
 			as::cryptox::Pair pair( base, quote, p.name );
 			m_pairList[p.id] = pair;
@@ -191,11 +191,11 @@ namespace as::cryptox::poloniex {
 
 		if ( Direction::BUY == direction ) {
 			body.assign(
-				ApiRequest::Buy( SymbolName( symbol ), price, quantity ) );
+				ApiRequest::Buy( toName( symbol ), price, quantity ) );
 		}
 		else if ( Direction::SELL == direction ) {
 			body.assign(
-				ApiRequest::Sell( SymbolName( symbol ), price, quantity ) );
+				ApiRequest::Sell( toName( symbol ), price, quantity ) );
 		}
 
 		HttpHeaderList headers;

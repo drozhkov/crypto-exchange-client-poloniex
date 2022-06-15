@@ -99,7 +99,7 @@ namespace as::cryptox::poloniex {
 
 	class WsMessagePriceBookTicker : public WsMessage {
 	protected:
-		Symbol m_symbol;
+		::as::cryptox::Symbol m_symbol;
 		::as::FixedNumber m_askPrice;
 		::as::FixedNumber m_askSize;
 		::as::FixedNumber m_bidPrice;
@@ -114,7 +114,7 @@ namespace as::cryptox::poloniex {
 		{
 		}
 
-		Symbol Symbol() const
+		::as::cryptox::Symbol Symbol()
 		{
 			return m_symbol;
 		}
