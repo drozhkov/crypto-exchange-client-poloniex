@@ -65,3 +65,7 @@ target_link_libraries(${PROJECT_NAME} ${LIBS})
 
 #
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
+
+
+#
+install(TARGETS ${PROJECT_NAME} DESTINATION ./bin)

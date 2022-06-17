@@ -101,7 +101,13 @@ namespace as::cryptox::poloniex {
 				}
 
 				Pair pair;
+
+#if BOOST_VERSION >= 107900
+				pair.name.assign( e.key() );
+#else
 				pair.name.assign( e.key().to_string() );
+#endif
+
 				pair.id = id;
 
 				result.m_pairs.push_back( pair );
