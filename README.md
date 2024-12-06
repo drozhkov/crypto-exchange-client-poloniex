@@ -1,5 +1,5 @@
+# WARNING: unreliable exchange!!!
 # Poloniex crypto exchange C++ client
-
 
 ## dependencies
 - CMake (3.8+)
